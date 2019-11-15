@@ -24,12 +24,12 @@
 
     <div id="navbarBasicExample" class="navbar-menu">
       <div class="navbar-start">
-        <a class="navbar-item">
+        <router-link to="/home" class="navbar-item">
           Ngapain?
-        </a>
-        <a class="navbar-item">
+        </router-link>
+        <router-link to="/about" class="navbar-item">
           About
-        </a>
+        </router-link>
       </div>
 
       <div class="navbar-end">
@@ -60,7 +60,6 @@
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 import UserStore from "../../store/modules/users";
-import { User } from "../../../../server/src/model/model";
 
 @Component
 export default class Header extends Vue {

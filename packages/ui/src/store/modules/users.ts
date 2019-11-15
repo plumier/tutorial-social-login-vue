@@ -3,7 +3,8 @@ import {
   Module,
   MutationAction,
   VuexModule,
-  Action
+  Action,
+  Mutation
 } from "vuex-module-decorators";
 import store from "@/store";
 import { User } from "../../../../server/src/model/model";
@@ -27,6 +28,11 @@ class UsersModule extends VuexModule {
     return (this.user && this.user.picture) || "";
   }
 
+  @Mutation
+  setUser(user: User | null) {
+    this.user = user;
+  }
+
   @MutationAction
   async loadUser() {
     const response = await UserApi.getCurrentUser();
@@ -47,6 +53,8 @@ class UsersModule extends VuexModule {
     const response = await AuthApi.isAuthenticated();
     if (response.result.authenticated && this.user === null) {
       await this.loadUser();
+    } else if (!response.result.authenticated) {
+      this.context.commit("setUser", null);
     }
     return response.result.authenticated;
   }
