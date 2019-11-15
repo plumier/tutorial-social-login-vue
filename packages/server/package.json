@@ -1,0 +1,38 @@
+{
+  "name": "@project/server",
+  "version": "1.0.0",
+  "main": "src/index",
+  "scripts": {
+    "start": "node src/index",
+    "debug": "ts-node-dev --inspect -- src/index",
+    "build": "tsc -p tsconfig.build.json",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@plumier/jwt": "1.0.0-dev.14",
+    "@plumier/mongoose": "1.0.0-dev.14",
+    "@plumier/serve-static": "1.0.0-dev.14",
+    "@plumier/social-login": "1.0.0-dev.14",
+    "@types/bcrypt": "^3.0.0",
+    "@types/csrf": "^1.3.2",
+    "@types/dotenv": "^6.1.1",
+    "@types/jsonwebtoken": "^8.3.4",
+    "bcrypt": "^3.0.6",
+    "csrf": "^3.1.0",
+    "dotenv": "^8.1.0",
+    "jsonwebtoken": "^8.5.1",
+    "plumier": "1.0.0-dev.14"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.18",
+    "@types/supertest": "^2.0.8",
+    "faker": "^4.1.0",
+    "jest": "^24.9.0",
+    "mongodb-memory-server-global": "^5.2.8",
+    "supertest": "^4.0.2",
+    "ts-jest": "^24.1.0",
+    "ts-node": "^8.4.1",
+    "ts-node-dev": "^1.0.0-pre.43",
+    "typescript": "^3.6.4"
+  }
+}
