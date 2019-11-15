@@ -7,14 +7,29 @@ import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
 // font awesome initialization
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { faEnvelope, faLock } from "@fortawesome/free-solid-svg-icons";
+import {
+  faEnvelope,
+  faLock,
+  faTrashAlt,
+  faCheckCircle,
+  faCheckDouble
+} from "@fortawesome/free-solid-svg-icons";
 import {
   faGoogle,
   faFacebook,
   faGithub
 } from "@fortawesome/free-brands-svg-icons";
 
-library.add(faEnvelope, faLock, faGithub, faFacebook, faGoogle);
+library.add(
+  faEnvelope,
+  faLock,
+  faTrashAlt,
+  faCheckCircle,
+  faCheckDouble,
+  faGithub,
+  faFacebook,
+  faGoogle
+);
 Vue.component("font-awesome-icon", FontAwesomeIcon);
 
 // page layout initialization

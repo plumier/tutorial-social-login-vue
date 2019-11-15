@@ -1,4 +1,4 @@
-import axios, { ResponseApi, callApi } from "@/api/apibase";
+import { ResponseApi, callApi } from "@/api/apibase";
 
 export default {
   async getIdentity(): Promise<ResponseApi<any>> {

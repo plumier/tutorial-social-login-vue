@@ -1,7 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import UserStore from "../store/modules/users";
-import User from "@/api/user";
 
 Vue.use(VueRouter);
 

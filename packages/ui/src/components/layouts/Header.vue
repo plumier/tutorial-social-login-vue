@@ -1,15 +1,12 @@
 <template>
   <nav class="navbar is-light" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
-      <a class="navbar-item" href="https://bulma.io">
-        <img
-          src="https://bulma.io/images/bulma-logo.png"
-          width="112"
-          height="28"
-        />
+      <a class="navbar-item has-text-info is-size-3" href="#">
+        <font-awesome-icon icon="check-double"></font-awesome-icon>
+        <span style="margin-left: 10px;">Ngapain?</span>
       </a>
-
       <a
+        @click="showMobileNavbar = !showMobileNavbar"
         role="button"
         class="navbar-burger burger"
         aria-label="menu"
@@ -22,34 +19,31 @@
       </a>
     </div>
 
-    <div id="navbarBasicExample" class="navbar-menu">
+    <div
+      id="navbarBasicExample"
+      class="navbar-menu"
+      :class="{ 'is-active': showMobileNavbar }"
+    >
       <div class="navbar-start">
         <router-link to="/home" class="navbar-item">
-          Ngapain?
+          Home
         </router-link>
         <router-link to="/about" class="navbar-item">
           About
         </router-link>
       </div>
-
       <div class="navbar-end">
-        <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link">
-            <div class="media">
-              <div class="media-left">
-                <figure class="image is-32x32">
-                  <img class="is-rounded" :src="userAvatar" />
-                </figure>
-              </div>
-              <div class="media-content">
-                <p class="is-size-5">{{ userFullName }}</p>
+        <div class="navbar-item">
+          <div class="level is-mobile">
+            <div class="level-left">
+              <figure class="image is-48x48" style="margin-right: 10px;">
+                <img class="is-rounded" :src="userAvatar" />
+              </figure>
+              <div>
+                <p class="">{{ userFullName }}</p>
+                <p class="is-size-7"><a href="#" @click="logout">Logout</a></p>
               </div>
             </div>
-          </a>
-          <div class="navbar-dropdown">
-            <a class="navbar-item" @click="logout">
-              Logout
-            </a>
           </div>
         </div>
       </div>
@@ -63,6 +57,8 @@ import UserStore from "../../store/modules/users";
 
 @Component
 export default class Header extends Vue {
+  showMobileNavbar: boolean = false;
+
   get userFullName() {
     return UserStore.userFullName;
   }
@@ -76,3 +72,12 @@ export default class Header extends Vue {
   }
 }
 </script>
+
+<style scoped>
+.navbar-item img {
+  max-height: 48px;
+}
+.navbar-burger {
+  height: unset;
+}
+</style>

@@ -1,5 +1,5 @@
 import { ResponseApi, callApi } from "@/api/apibase";
-import { User } from "../../../server/src/model/model";
+import { User } from "@/model/model";
 
 export default {
   async registerUser(data: any): Promise<ResponseApi<User>> {

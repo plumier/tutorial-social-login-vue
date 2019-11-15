@@ -10,7 +10,7 @@
                 <div class="control has-icons-left">
                   <input
                     type="email"
-                    placeholder="e.g. bobsmith@gmail.com"
+                    placeholder="johndoe@gmail.com"
                     class="input"
                     required
                   />
@@ -56,8 +56,8 @@
                 </div>
               </div>
             </form>
-            <div class="column">
-              Not a member click <a href="">here to register</a>
+            <div class="column has-text-centered">
+              Not a member click <a href="">here</a> to register
             </div>
           </div>
         </div>
@@ -71,6 +71,7 @@ import { Component, Vue } from "vue-property-decorator";
 import AuthApi from "../api/auth";
 import { ResponseApi } from "../api/apibase";
 import UserStore from "../store/modules/users";
+import { facebookDialog, googleDialog, githubDialog } from "../utils/dialog";
 
 @Component
 export default class Login extends Vue {
@@ -78,7 +79,7 @@ export default class Login extends Vue {
     // Social login popup handler
     (window as any).onLogin = this.socialLoginHandler;
 
-    let response: ResponseApi<any> = await AuthApi.getIdentity();
+    const response: ResponseApi<any> = await AuthApi.getIdentity();
     if (!response.success) {
       alert(response.exceptions);
     }
@@ -106,33 +107,16 @@ export default class Login extends Vue {
     }
   }
 
-  dialog(url: string, w = 600, h = 500) {
-    const y = window.top.outerHeight / 2 + window.top.screenY - h / 2;
-    const x = window.top.outerWidth / 2 + window.top.screenX - w / 2;
-    window.open(
-      url,
-      "Social Login",
-      "toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=" +
-        w +
-        ", height=" +
-        h +
-        ", top=" +
-        y +
-        ", left=" +
-        x
-    );
-  }
-
   facebookDialog() {
-    this.dialog("auth/dialogs/facebook");
+    facebookDialog();
   }
 
   googleDialog() {
-    this.dialog("auth/dialogs/google");
+    googleDialog();
   }
 
   githubDialog() {
-    this.dialog("auth/dialogs/github");
+    githubDialog();
   }
 }
 </script>
