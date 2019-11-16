@@ -5,7 +5,7 @@ const API_URL = ""; // process.env.BASE_API_URL;
 export interface ResponseApi<T> {
   success: boolean;
   result: T;
-  exceptions: Array<any>;
+  exceptions: any;
   status: number;
 }
 
@@ -33,7 +33,7 @@ service.interceptors.response.use(
     response.data = <ResponseApi<any>>{
       success: true,
       result: response.data,
-      exceptions: [],
+      exceptions: "",
       status: response.status
     };
     return response;

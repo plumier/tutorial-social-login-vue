@@ -14,15 +14,3 @@ export const dialog = (url: string, w = 600, h = 500) => {
       x
   );
 };
-
-export const facebookDialog = () => {
-  dialog("auth/dialogs/facebook");
-};
-
-export const googleDialog = () => {
-  dialog("auth/dialogs/google");
-};
-
-export const githubDialog = () => {
-  dialog("auth/dialogs/github");
-};

@@ -4,15 +4,18 @@
       <div class="container">
         <div class="columns is-centered">
           <div class="column is-5-tablet is-4-desktop is-3-widescreen">
-            <form action="" class="box">
+            <form action="" @submit.prevent="login" class="box">
+              <article v-if="errors !== ''" class="message is-danger">
+                <div class="message-body">{{ errors }}</div>
+              </article>
               <div class="field">
                 <label for="" class="label">Email</label>
                 <div class="control has-icons-left">
                   <input
+                    v-model="email"
                     type="email"
                     placeholder="johndoe@gmail.com"
                     class="input"
-                    required
                   />
                   <span class="icon is-small is-left">
                     <font-awesome-icon icon="envelope" />
@@ -23,10 +26,10 @@
                 <label for="" class="label">Password</label>
                 <div class="control has-icons-left">
                   <input
+                    v-model="password"
                     type="password"
                     placeholder="*******"
                     class="input"
-                    required
                   />
                   <span class="icon is-small is-left">
                     <font-awesome-icon icon="lock" />
@@ -57,7 +60,8 @@
               </div>
             </form>
             <div class="column has-text-centered">
-              Not a member click <a href="">here</a> to register
+              Not a member click
+              <router-link to="/register">here</router-link> to register
             </div>
           </div>
         </div>
@@ -71,19 +75,19 @@ import { Component, Vue } from "vue-property-decorator";
 import AuthApi from "../api/auth";
 import { ResponseApi } from "../api/apibase";
 import UserStore from "../store/modules/users";
-import { facebookDialog, googleDialog, githubDialog } from "../utils/dialog";
+import { dialog } from "../utils/dialog";
 
 @Component
 export default class Login extends Vue {
+  email: string = "";
+  password: string = "";
+  errors: any = "";
+
   async created() {
     // Social login popup handler
     (window as any).onLogin = this.socialLoginHandler;
 
-    const response: ResponseApi<any> = await AuthApi.getIdentity();
-    if (!response.success) {
-      alert(response.exceptions);
-    }
-
+    await AuthApi.getIdentity();
     if (await UserStore.isAuthenticated()) {
       this.$router.replace("/home");
     }
@@ -107,16 +111,32 @@ export default class Login extends Vue {
     }
   }
 
+  async login() {
+    const response: ResponseApi<any> = await AuthApi.login({
+      email: this.email,
+      password: this.password
+    });
+    if (response.success) {
+      if (await UserStore.isAuthenticated()) {
+        this.$router.replace("/home");
+      } else {
+        alert("social login failed!");
+      }
+    } else {
+      this.errors = response.exceptions;
+    }
+  }
+
   facebookDialog() {
-    facebookDialog();
+    dialog("auth/dialogs/facebook");
   }
 
   googleDialog() {
-    googleDialog();
+    dialog("auth/dialogs/google");
   }
 
   githubDialog() {
-    githubDialog();
+    dialog("auth/dialogs/github");
   }
 }
 </script>

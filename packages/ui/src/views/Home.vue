@@ -54,8 +54,6 @@ export default class Home extends Vue {
     const response: ResponseApi<Array<Todo>> = await TodoApi.getTodos();
     if (response.success) {
       this.todos = response.result;
-    } else {
-      console.log(response.exceptions);
     }
   }
 
@@ -67,8 +65,6 @@ export default class Home extends Vue {
       if (response.success) {
         this.getTodos();
         this.newTodo = "";
-      } else {
-        console.log(response.exceptions);
       }
     }
   }
@@ -80,8 +76,6 @@ export default class Home extends Vue {
     );
     if (response.success) {
       this.getTodos();
-    } else {
-      console.log(response.exceptions);
     }
   }
 
@@ -90,8 +84,6 @@ export default class Home extends Vue {
       const response: ResponseApi<Todo> = await TodoApi.deleteTodo(item.id);
       if (response.success) {
         this.getTodos();
-      } else {
-        console.log(response.exceptions);
       }
     }
   }

@@ -4,7 +4,7 @@ import { User } from "@/model/model";
 export default {
   async registerUser(data: any): Promise<ResponseApi<User>> {
     return await callApi({
-      url: "api/v1/user",
+      url: "api/v1/users",
       method: "post",
       data: data
     });

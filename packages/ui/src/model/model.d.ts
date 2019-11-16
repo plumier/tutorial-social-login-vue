@@ -17,3 +17,17 @@ export interface User extends DomainBase {
   password: string;
   role: string;
 }
+
+export interface RegisterValidationMessage {
+  name: string;
+  email: string;
+  password: string;
+  confirmPassword: string;
+}
+
+export interface RegisterSubmit {
+  name: string;
+  email: string;
+  password: string;
+  confirmPassword: string;
+}
