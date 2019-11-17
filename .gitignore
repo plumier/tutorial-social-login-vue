@@ -5,4 +5,8 @@ build
 .env
 !jest.config.js
 !jest.config.debug.js
+!.eslintrc.js
+!babel.config.js
+!postcss.config.js
+!vue.config.js
 .DS_Store
