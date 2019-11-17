@@ -4,18 +4,8 @@
       <div class="has-text-centered">
         <div class="columns">
           <div class="column is-half is-offset-one-quarter">
-            <div class="level is-mobile">
-              <div class="level-left">
-                <figure class="image is-128x128">
-                  <img src="@/assets/plumier-logo.png" />
-                </figure>
-              </div>
-              <div class="level-right">
-                <figure class="image is-128x128">
-                  <img src="@/assets/logo.png" />
-                </figure>
-              </div>
-            </div>
+            <img class="vendor-logo" src="@/assets/plumier-logo.png" />
+            <img class="vendor-logo" src="@/assets/logo.png" />
           </div>
         </div>
 
@@ -43,3 +33,9 @@
     </div>
   </section>
 </template>
+
+<style scoped>
+.vendor-logo {
+  width: 128px;
+}
+</style>

@@ -1,9 +1,12 @@
 <template>
   <div class="modal" :class="{ 'is-active': isLoading }">
     <div class="modal-background"></div>
-    <div class="modal-content">
-      <div class="buttons is-centered">
-        <button class="button is-primary is-loading is-large">Loading</button>
+    <div class="modal-content loading-content">
+      <div class="box has-text-centered">
+        <h4 class="title is-4 has-text-primary">
+          <font-awesome-icon icon="spinner" pulse></font-awesome-icon
+          >&nbsp;&nbsp;Loading
+        </h4>
       </div>
     </div>
   </div>
@@ -23,6 +26,10 @@ export default class Loading extends Vue {
 
 <style scoped>
 .modal-background {
-  background-color: rgba(10, 10, 10, 0.3);
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.loading-content {
+  width: 200px;
 }
 </style>

@@ -17,16 +17,22 @@
               'has-text-success': todo.completed,
               'has-text-grey-lighter': !todo.completed
             }"
-            ><font-awesome-icon icon="check-circle"></font-awesome-icon
+            ><font-awesome-icon
+              icon="check-circle"
+              size="2x"
+            ></font-awesome-icon
           ></a>
         </td>
-        <td :class="{ completed: todo.completed }">
+        <td
+          style="vertical-align: middle;"
+          :class="{ completed: todo.completed }"
+        >
           {{ todo.title }}
         </td>
         <td class="col-action">
           <div class="buttons">
             <a @click="deleteTodo(todo)" class="has-text-danger"
-              ><font-awesome-icon icon="trash-alt"></font-awesome-icon
+              ><font-awesome-icon icon="trash-alt" size="2x"></font-awesome-icon
             ></a>
           </div>
         </td>

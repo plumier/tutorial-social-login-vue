@@ -42,7 +42,7 @@
               <div>
                 <p class="">{{ userFullName }}</p>
                 <p class="is-size-7">
-                  <a class="has-text-white" href="#" @click="logout">Logout</a>
+                  <a class="has-text-link" href="#" @click="logout">Logout</a>
                 </p>
               </div>
             </div>

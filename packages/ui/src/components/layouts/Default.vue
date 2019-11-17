@@ -1,7 +1,7 @@
 <template>
   <div class="">
     <page-header></page-header>
-    <div class="container is-fluid">
+    <div class="container">
       <slot></slot>
     </div>
   </div>

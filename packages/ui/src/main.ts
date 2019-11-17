@@ -12,7 +12,8 @@ import {
   faLock,
   faTrashAlt,
   faCheckCircle,
-  faFeatherAlt
+  faFeatherAlt,
+  faSpinner
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faGoogle,
@@ -26,6 +27,7 @@ library.add(
   faTrashAlt,
   faCheckCircle,
   faFeatherAlt,
+  faSpinner,
   faGithub,
   faFacebook,
   faGoogle
