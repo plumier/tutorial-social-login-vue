@@ -17,7 +17,6 @@
   "scripts": {
     "kill": "kill-port 8000 8080",
     "clean": "ts-node scripts/cleanup.ts",
-    "postinstall": "ts-node scripts/postinstall.ts",
     "build:ui": "yarn workspace @project/ui build",
     "build:server": "yarn workspace @project/server build",
     "build": "yarn clean && yarn build:ui && yarn build:server",
