@@ -9,8 +9,7 @@ export class HomeController {
     //thus when user refresh browser in specific route, it will keep in the correct url
     @authorize.public()
     @route.get("/")
-    @route.get("/login")
-    @route.get("/register")
+    @route.historyApiFallback()
     index(){
         return response.file(join(__dirname, "../../../ui/dist/index.html"))
     }
