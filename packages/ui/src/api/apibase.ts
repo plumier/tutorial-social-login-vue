@@ -1,4 +1,5 @@
 import axios, { AxiosRequestConfig } from "axios";
+import LoaderStore from "../store/modules/loader";
 
 const API_URL = ""; // process.env.BASE_API_URL;
 
@@ -39,10 +40,7 @@ service.interceptors.response.use(
     return response;
   },
   error => {
-    // if (error.response.status === 401) {
-    //   store.dispatch('logout')
-    //   window.location.reload()
-    // } else {
+    // you also can check if user authenticate status here, and redirect it to login page if not authenticate
     let errorResponse = <ResponseApi<any>>{
       success: false,
       result: null,
@@ -58,10 +56,13 @@ export const callApi = async (
   config: AxiosRequestConfig
 ): Promise<ResponseApi<any>> => {
   try {
+    LoaderStore.showLoading();
     const response = await service(config);
     return response.data;
   } catch (e) {
     return e;
+  } finally {
+    LoaderStore.hideLoading();
   }
 };
 

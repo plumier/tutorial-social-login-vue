@@ -12,7 +12,7 @@ import {
   faLock,
   faTrashAlt,
   faCheckCircle,
-  faCheckDouble
+  faFeatherAlt
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faGoogle,
@@ -25,7 +25,7 @@ library.add(
   faLock,
   faTrashAlt,
   faCheckCircle,
-  faCheckDouble,
+  faFeatherAlt,
   faGithub,
   faFacebook,
   faGoogle
@@ -35,9 +35,11 @@ Vue.component("font-awesome-icon", FontAwesomeIcon);
 // page layout initialization
 import DefaultLayout from "@/components/layouts/Default.vue";
 import FullLayout from "@/components/layouts/Full.vue";
+import Loading from "@/components/Loading.vue";
 
 Vue.component("default-layout", DefaultLayout);
 Vue.component("full-layout", FullLayout);
+Vue.component("loading", Loading);
 
 Vue.config.productionTip = false;
 

@@ -1,9 +1,9 @@
 <template>
-  <nav class="navbar is-light" role="navigation" aria-label="main navigation">
+  <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
-      <a class="navbar-item has-text-info is-size-3" href="#">
-        <font-awesome-icon icon="check-double"></font-awesome-icon>
-        <span style="margin-left: 10px;">Ngapain?</span>
+      <a class="navbar-item has-text-white is-size-3" href="#">
+        <font-awesome-icon icon="feather-alt"></font-awesome-icon>
+        <span style="margin-left: 10px;">Note it!</span>
       </a>
       <a
         @click="showMobileNavbar = !showMobileNavbar"
@@ -41,7 +41,9 @@
               </figure>
               <div>
                 <p class="">{{ userFullName }}</p>
-                <p class="is-size-7"><a href="#" @click="logout">Logout</a></p>
+                <p class="is-size-7">
+                  <a class="has-text-white" href="#" @click="logout">Logout</a>
+                </p>
               </div>
             </div>
           </div>

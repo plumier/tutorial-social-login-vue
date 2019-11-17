@@ -4,9 +4,24 @@
       <div class="container">
         <div class="columns is-centered">
           <div class="column is-7-tablet is-6-desktop is-5-widescreen">
-            <h4 class="title is-4 has-text-centered">
-              Registration Form
-            </h4>
+            <div class="level">
+              <div class="level-left">
+                <div class="level-item">
+                  <span class="level-item has-text-primary is-size-3" href="#">
+                    <font-awesome-icon icon="feather-alt"></font-awesome-icon>
+                    <span style="margin-left: 10px;">Note it!</span>
+                  </span>
+                </div>
+              </div>
+              <div class="level-right">
+                <div class="level-item">
+                  <h4 class="title is-4 has-text-centered">
+                    Registration Form
+                  </h4>
+                </div>
+              </div>
+            </div>
+
             <form action="" @submit.prevent="submitForm" class="box">
               <div class="field">
                 <label for="name" class="label">Name</label>

@@ -4,6 +4,12 @@
       <div class="container">
         <div class="columns is-centered">
           <div class="column is-5-tablet is-4-desktop is-3-widescreen">
+            <div class="column has-text-centered">
+              <span class="has-text-primary is-size-3" href="#">
+                <font-awesome-icon icon="feather-alt"></font-awesome-icon>
+                <span style="margin-left: 10px;">Note it!</span>
+              </span>
+            </div>
             <form action="" @submit.prevent="login" class="box">
               <article v-if="errors !== ''" class="message is-danger">
                 <div class="message-body">{{ errors }}</div>

@@ -7,7 +7,7 @@ import {
   Mutation
 } from "vuex-module-decorators";
 import store from "@/store";
-import { User } from "../../../../server/src/model/model";
+import { User } from "@/model/model";
 import UserApi from "@/api/user";
 import AuthApi from "@/api/auth";
 

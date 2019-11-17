@@ -1,6 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import UserStore from "../store/modules/users";
+import LoaderStore from "../store/modules/loader";
 
 Vue.use(VueRouter);
 
@@ -42,6 +43,8 @@ const router = new VueRouter({
 });
 
 router.beforeEach(async (to, from, next) => {
+  LoaderStore.showLoading();
+
   if (to.matched.some(record => record.meta.public)) {
     next();
   } else {
@@ -55,6 +58,10 @@ router.beforeEach(async (to, from, next) => {
       next();
     }
   }
+});
+
+router.afterEach((to, from) => {
+  LoaderStore.hideLoading();
 });
 
 export default router;

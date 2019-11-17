@@ -726,6 +726,37 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
+"@fortawesome/fontawesome-common-types@^0.2.25":
+  version "0.2.25"
+  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-common-types/-/fontawesome-common-types-0.2.25.tgz#6df015905081f2762e5cfddeb7a20d2e9b16c786"
+  integrity sha512-3RuZPDuuPELd7RXtUqTCfed14fcny9UiPOkdr2i+cYxBoTOfQgxcDoq77fHiiHcgWuo1LoBUpvGxFF1H/y7s3Q==
+
+"@fortawesome/fontawesome-svg-core@^1.2.25":
+  version "1.2.25"
+  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-svg-core/-/fontawesome-svg-core-1.2.25.tgz#24b03391d14f0c6171e8cad7057c687b74049790"
+  integrity sha512-MotKnn53JKqbkLQiwcZSBJVYtTgIKFbh7B8+kd05TSnfKYPFmjKKI59o2fpz5t0Hzl35vVGU6+N4twoOpZUrqA==
+  dependencies:
+    "@fortawesome/fontawesome-common-types" "^0.2.25"
+
+"@fortawesome/free-brands-svg-icons@^5.11.2":
+  version "5.11.2"
+  resolved "https://registry.yarnpkg.com/@fortawesome/free-brands-svg-icons/-/free-brands-svg-icons-5.11.2.tgz#39d4296d03bf5719c579dea4bdcdd356ed2de0b4"
+  integrity sha512-wKK5znpHiZ2S0VgOvbeAnYuzkk3H86rxWajD9PVpfBj3s/kySEWTFKh/uLPyxiTOx8Tsd0OGN4En/s9XudVHLQ==
+  dependencies:
+    "@fortawesome/fontawesome-common-types" "^0.2.25"
+
+"@fortawesome/free-solid-svg-icons@^5.11.2":
+  version "5.11.2"
+  resolved "https://registry.yarnpkg.com/@fortawesome/free-solid-svg-icons/-/free-solid-svg-icons-5.11.2.tgz#2f2f1459743a27902b76655a0d0bc5ec4d945631"
+  integrity sha512-zBue4i0PAZJUXOmLBBvM7L0O7wmsDC8dFv9IhpW5QL4kT9xhhVUsYg/LX1+5KaukWq4/cbDcKT+RT1aRe543sg==
+  dependencies:
+    "@fortawesome/fontawesome-common-types" "^0.2.25"
+
+"@fortawesome/vue-fontawesome@^0.1.8":
+  version "0.1.8"
+  resolved "https://registry.yarnpkg.com/@fortawesome/vue-fontawesome/-/vue-fontawesome-0.1.8.tgz#615347c56d285eb634315f59fe4f4156e4eee8b4"
+  integrity sha512-SdFiUD+vFDA/xKuEbnQTVrK8FDxoV0eyQaiHxmCcjAc0+vQe0Kf6oGm28opNPIt8MTgKWR3+Yg3xXP455Ae4tQ==
+
 "@hapi/address@2.x.x":
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/@hapi/address/-/address-2.1.2.tgz#1c794cd6dbf2354d1eb1ef10e0303f573e1c7222"
@@ -956,10 +987,10 @@
     "@nodelib/fs.scandir" "2.1.3"
     fastq "^1.6.0"
 
-"@plumier/core@1.0.0-dev.14+39f91e9":
-  version "1.0.0-dev.14"
-  resolved "https://registry.yarnpkg.com/@plumier/core/-/core-1.0.0-dev.14.tgz#412197b37d5d2db625311f3f1b530a38fbe85c8f"
-  integrity sha512-RqJ17ong3XwpDwbr14vnMykTQys6agS8UBBBl64gJBTRs66npGymMZ1Q/RMuv/7wwEr2XIpbORCJ4OHbFvO4IQ==
+"@plumier/core@1.0.0-beta.11":
+  version "1.0.0-beta.11"
+  resolved "https://registry.yarnpkg.com/@plumier/core/-/core-1.0.0-beta.11.tgz#776cf0132f467389817ac0fa0b6b7eb532485f5a"
+  integrity sha512-JRPrLxdZu29ToPvO5dfVuB7Tq7qJuaFWj7F0s1VksjQZcW865WnSLvh/dgfHMHmv9/E236Msst9bqDxK9Hluhw==
   dependencies:
     "@types/glob" "^7.1.1"
     "@types/koa" "^2.0.51"
@@ -970,39 +1001,41 @@
     tslib "^1.10.0"
     typedconverter "^1.0.4"
 
-"@plumier/jwt@1.0.0-dev.14":
-  version "1.0.0-dev.14"
-  resolved "https://registry.yarnpkg.com/@plumier/jwt/-/jwt-1.0.0-dev.14.tgz#6987b7ff9b566908c19e395453a0f9174a346c0b"
-  integrity sha512-UnQIu+r6iBnpz5atX3BMXqQzRTNoEG26j4LG9mYcqO5vZ6kpYWrzJ/IQwCR9yBUXEJWnKVlwJiaQmco+Iooepg==
+"@plumier/jwt@^1.0.0-beta.11":
+  version "1.0.0-beta.11"
+  resolved "https://registry.yarnpkg.com/@plumier/jwt/-/jwt-1.0.0-beta.11.tgz#1bf3fda9d7fccbaf729f0e7d8ddbb379d86cde18"
+  integrity sha512-CNgiyLQf32hDYhQp79LjjVdvr8VhQHsFxv4/Azf++RyBZHruRTkv0ThyE5ir/ZOrVc5Zum/F5y95JsFKEuRV2A==
   dependencies:
-    "@plumier/core" "1.0.0-dev.14+39f91e9"
+    "@plumier/core" "1.0.0-beta.11"
     koa-jwt "^3.6.0"
 
-"@plumier/mongoose@1.0.0-dev.14":
-  version "1.0.0-dev.14"
-  resolved "https://registry.yarnpkg.com/@plumier/mongoose/-/mongoose-1.0.0-dev.14.tgz#d7b82b53474aaaa558edad14644792b536dfd70c"
-  integrity sha512-5+4wnlCeqohn8EL7NYqUKdIbtxabmpWTegUJt7H8e6FRcvM/Tgn3bwQOgea3dii5bgJ353kPaEj3cUn7+jbgww==
+"@plumier/mongoose@^1.0.0-beta.11":
+  version "1.0.0-beta.11"
+  resolved "https://registry.yarnpkg.com/@plumier/mongoose/-/mongoose-1.0.0-beta.11.tgz#8051f35c6489b58788848dd1f35b1aaf9bcc7f2e"
+  integrity sha512-GJC6eJz9ic9T8Z2/kcureQLui4ymF6n95RB9/TGjgdfG8DTtwOW66k+3iF63N1yfWv1oc7ollDKN6EibSLwXoA==
   dependencies:
-    "@plumier/core" "1.0.0-dev.14+39f91e9"
+    "@plumier/core" "1.0.0-beta.11"
     "@types/mongoose" "^5.5.28"
     chalk "^2.4.2"
     mongoose "^5.7.7"
 
-"@plumier/serve-static@1.0.0-dev.14":
-  version "1.0.0-dev.14"
-  resolved "https://registry.yarnpkg.com/@plumier/serve-static/-/serve-static-1.0.0-dev.14.tgz#afadb4b3c9e1667b5a9ff36dfed7df7ffdd70481"
-  integrity sha512-ANmxoUoI9uLotkrC9hS/jb9aeBMRkEymB2yi69EdD55U3E2r7br+q/E6r4LnofF2GcEAVlNnbqijWscoOIGVOQ==
+"@plumier/serve-static@^1.0.0-beta.11":
+  version "1.0.0-beta.11"
+  resolved "https://registry.yarnpkg.com/@plumier/serve-static/-/serve-static-1.0.0-beta.11.tgz#7d4ab7ddc699b01a41552ce2083b4c12416eeb88"
+  integrity sha512-C/LNfYP9HJthu1lSqeFNj5PXurqSshKP1JXPgxscrvvAHeLGhowKeuKpcHqrxouc8BOjW+0jZfV9aE4Pyvx4cw==
   dependencies:
-    "@plumier/core" "1.0.0-dev.14+39f91e9"
+    "@plumier/core" "1.0.0-beta.11"
     "@types/koa-send" "^4.1.2"
+    "@types/mime-types" "2.1.0"
     koa-send "^5.0.0"
+    mime-types "2.1.24"
 
-"@plumier/social-login@1.0.0-dev.14":
-  version "1.0.0-dev.14"
-  resolved "https://registry.yarnpkg.com/@plumier/social-login/-/social-login-1.0.0-dev.14.tgz#d238ab448c2a671843449c40a28a53761aba0474"
-  integrity sha512-rBL3g6Mr0usYbIuhjuJyPzL6i6Z0f5C+MsAQxrU2uS+XFdS7NBFkd4M9zHefMgHOiVRIsT52+7K+bACkx0qeqg==
+"@plumier/social-login@^1.0.0-beta.11":
+  version "1.0.0-beta.11"
+  resolved "https://registry.yarnpkg.com/@plumier/social-login/-/social-login-1.0.0-beta.11.tgz#d0768397e532ab682f94c2ba26d306f7304d5650"
+  integrity sha512-cxO4/8ZaYBCN97CskfBpIOAefC/oH5asSa+evAtkCuwfnpjSA+Y3CTdB9UVCKQBptQYP8QQ9OfgMjj1f3sD8PA==
   dependencies:
-    "@plumier/core" "1.0.0-dev.14+39f91e9"
+    "@plumier/core" "1.0.0-beta.11"
     "@types/axios" "0.14.0"
     "@types/debug" "^4.1.5"
     axios "0.19.0"
@@ -1272,6 +1305,11 @@
   integrity sha512-RfG2EuSc+nv/E+xbDSLW8KCoeri/3AkqwVPuENfF/DctllRoXhooboO//Sw7yFtkLvj7nG7O1H3JcZmoTQz8nQ==
   dependencies:
     "@types/koa" "*"
+
+"@types/mime-types@2.1.0":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@types/mime-types/-/mime-types-2.1.0.tgz#9ca52cda363f699c69466c2a6ccdaad913ea7a73"
+  integrity sha1-nKUs2jY/aZxpRmwqbM2q2RPqenM=
 
 "@types/mime@*":
   version "2.0.1"
@@ -2218,7 +2256,7 @@ aws4@^1.8.0:
   resolved "https://registry.yarnpkg.com/aws4/-/aws4-1.8.0.tgz#f0e003d9ca9e7f59c7a508945d7b2ef9a04a542f"
   integrity sha512-ReZxvNHIOv88FlT7rxcXIIC0fPt4KZqZbOlivyWtXLt8ESx84zd3kMC6iK5jVeS2qt+g7ftS7ye4fi06X5rtRQ==
 
-axios@*, axios@0.19.0:
+axios@*, axios@0.19.0, axios@^0.19.0:
   version "0.19.0"
   resolved "https://registry.yarnpkg.com/axios/-/axios-0.19.0.tgz#8e09bff3d9122e133f7b8101c8fbdd00ed3d2ab8"
   integrity sha512-1uvKqKQta3KBxIz14F2v06AEHZ/dIoeKfbTRkK1E5oqjDnuEerLmYTgJB5AiQZHJcljpg1TuRzdjDR06qNk0DQ==
@@ -2713,6 +2751,11 @@ builtin-status-codes@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/builtin-status-codes/-/builtin-status-codes-3.0.0.tgz#85982878e21b98e1c66425e03d0174788f569ee8"
   integrity sha1-hZgoeOIbmOHGZCXgPQF0eI9Wnug=
+
+bulma@^0.8.0:
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/bulma/-/bulma-0.8.0.tgz#ac1606431703a4761b18a4a2d5cc1fa864a2aece"
+  integrity sha512-nhf3rGyiZh/VM7FrSJ/5KeLlfaFkXz0nYcXriynfPH4vVpnxnqyEwaNGdNCVzHyyCA3cHgkQAMpdF/SFbFGZfA==
 
 bytes@3.0.0:
   version "3.0.0"
@@ -3368,6 +3411,11 @@ core-js@^3.3.2:
   version "3.4.0"
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.4.0.tgz#29ea478601789c72f2978e9bb98f43546f89d3aa"
   integrity sha512-lQxb4HScV71YugF/X28LtePZj9AB7WqOpcB+YztYxusvhrgZiQXPmCYfPC5LHsw/+ScEtDbXU3xbqH3CjBRmYA==
+
+core-js@^3.4.0:
+  version "3.4.1"
+  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.4.1.tgz#76dd6828412900ab27c8ce0b22e6114d7ce21b18"
+  integrity sha512-KX/dnuY/J8FtEwbnrzmAjUYgLqtk+cxM86hfG60LGiW3MmltIc2yAmDgBgEkfm0blZhUrdr1Zd84J2Y14mLxzg==
 
 core-util-is@1.0.2, core-util-is@~1.0.0:
   version "1.0.2"
@@ -7447,7 +7495,7 @@ mime-db@1.40.0:
   resolved "https://registry.yarnpkg.com/mime-db/-/mime-db-1.42.0.tgz#3e252907b4c7adb906597b4b65636272cf9e7bac"
   integrity sha512-UbfJCR4UAVRNgMpfImz05smAXK7+c+ZntjaA26ANtkXLlOe947Aag5zdIcKQULAiF9Cq4WxBi9jUs5zkA84bYQ==
 
-mime-types@^2.1.12, mime-types@^2.1.18, mime-types@~2.1.17, mime-types@~2.1.19, mime-types@~2.1.24:
+mime-types@2.1.24, mime-types@^2.1.12, mime-types@^2.1.18, mime-types@~2.1.17, mime-types@~2.1.19, mime-types@~2.1.24:
   version "2.1.24"
   resolved "https://registry.yarnpkg.com/mime-types/-/mime-types-2.1.24.tgz#b6f8d0b3e951efb77dedeca194cff6d16f676f81"
   integrity sha512-WaFHS3MCl5fapm3oLxU4eYDw77IQM2ACcxQ9RIxfaC3ooc6PFuBMGZZsYpvoXS5D5QTWPieo1jjLdAm3TBP3cQ==
@@ -8588,13 +8636,13 @@ pkg-up@^2.0.0:
   dependencies:
     find-up "^2.1.0"
 
-plumier@1.0.0-dev.14:
-  version "1.0.0-dev.14"
-  resolved "https://registry.yarnpkg.com/plumier/-/plumier-1.0.0-dev.14.tgz#cd3421fb3912c84b8e20db0796755287ed859211"
-  integrity sha512-gXSjXQA6E3b4WpsmdUvxrOPEQz4JVOF/CjQ1CRrLEW8xJr86iKJBRhY8HAnINQbkL271S7pyyo1fxCjlXgyfWw==
+plumier@^1.0.0-beta.11:
+  version "1.0.0-beta.11"
+  resolved "https://registry.yarnpkg.com/plumier/-/plumier-1.0.0-beta.11.tgz#1d7ce39b6024ebc5f5f400bea9dd170c9b2f5551"
+  integrity sha512-ROtvRxshKeq3iEDYBub5dBFR4wul6eBwxIUsiyIkEPWDJCPUxRwy0uBO17Pm5FD3CQfJNuFVC2Ir4TMOfDR7gw==
   dependencies:
     "@koa/cors" "^3.0.0"
-    "@plumier/core" "1.0.0-dev.14+39f91e9"
+    "@plumier/core" "1.0.0-beta.11"
     "@types/faker" "^4.1.7"
     "@types/koa__cors" "^2.2.3"
     faker "^4.1.0"
@@ -11288,6 +11336,11 @@ vue@^2.6.10:
   version "2.6.10"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.6.10.tgz#a72b1a42a4d82a721ea438d1b6bf55e66195c637"
   integrity sha512-ImThpeNU9HbdZL3utgMCq0oiMzAkt1mcgy3/E6zWC/G6AaQoeuFdsl9nDhTDU3X1R6FK7nsIUuRACVcjI+A2GQ==
+
+vuex-module-decorators@^0.11.0:
+  version "0.11.0"
+  resolved "https://registry.yarnpkg.com/vuex-module-decorators/-/vuex-module-decorators-0.11.0.tgz#1da409385f001dc45fffcc292f4a7895cdf8db27"
+  integrity sha512-mQeH0F9C5eoDvhOxGLxc2eKAA+GT9MvCyauZZtQSvLjN3PX//oj9mlhpmMJH2/q9LOScZ8fBrX1qqd+aOKq/LA==
 
 vuex@^3.0.1:
   version "3.1.1"

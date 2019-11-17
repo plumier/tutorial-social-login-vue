@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <loading></loading>
     <component :is="layout">
       <router-view />
     </component>
