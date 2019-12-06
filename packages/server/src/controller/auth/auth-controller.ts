@@ -2,13 +2,13 @@ import {
     FacebookLoginStatus,
     FacebookProfile,
     FacebookProvider,
-    GitHubLoginStatus,
     GitHubProfile,
     GitHubProvider,
     GoogleLoginStatus,
     GoogleProfile,
     GoogleProvider,
     oAuthCallback,
+    SocialLoginStatus,
 } from "@plumier/social-login"
 import bcrypt from "bcrypt"
 import Token from "csrf"
@@ -16,7 +16,7 @@ import { sign } from "jsonwebtoken"
 import { Document } from "mongoose"
 import { ActionResult, authorize, bind, HttpStatusError, response, route, val } from "plumier"
 
-import { LoginUser, User, UserModel } from "../../model/model"
+import { LoginUser, User, UserModel } from "../../model"
 
 export function signToken(user: User & Document) {
     return sign(<LoginUser>{ userId: user.id, role: user.role }, process.env.JWT_SECRET)
@@ -35,7 +35,7 @@ export class AuthController {
             return new ActionResult({ accessToken: token })
                 //Plumier automatically check for JWT if found cookie named "Authorization"
                 //by default HttpOnly cookie is true
-                .setCookie("Authorization", token, { sameSite: "strict" })
+                .setCookie("Authorization", token, { sameSite: "lax" })
         }
         else throw new HttpStatusError(422, "Invalid username or password")
     }
@@ -47,8 +47,8 @@ export class AuthController {
             .setCookie("Authorization")
     }
 
-    async authenticated(@bind.user() user:LoginUser | undefined ) {
-      return new ActionResult({authenticated: !!user})
+    async authenticated(@bind.user() user: LoginUser | undefined) {
+        return new ActionResult({ authenticated: !!user })
     }
 
     @route.ignore()
@@ -73,6 +73,18 @@ export class AuthController {
         else
             return response.callbackView({ status })
     }
+
+
+
+    /*
+    these 3 methods below is the OAuth callback URI for each social media provider
+    @oAuthCallback is a middleware that will do the neat stuff:
+    1. Retrieve authorization `code` provided by the OAuth login dialog when redirect occur
+    2. Exchange authorization code into auth token 
+    3. Retrieve current login user profile using the auth token
+    4. Bind the user profile with appropriate login status into the parameter decorate with @bind.loginStatus()
+    */
+
 
     //GET /auth/facebook
     @oAuthCallback(new FacebookProvider(process.env.FACEBOOK_CLIENT_ID, process.env.FACEBOOK_SECRET))
@@ -100,11 +112,11 @@ export class AuthController {
 
     //GET /auth/github
     @oAuthCallback(new GitHubProvider(process.env.GITHUB_CLIENT_ID, process.env.GITHUB_SECRET))
-    async github(@bind.loginStatus() login: GitHubLoginStatus, state: string, @bind.cookie("csrf:key") secret: string) {
+    async github(@bind.loginStatus() login: SocialLoginStatus<GitHubProfile>, state: string, @bind.cookie("csrf:key") secret: string) {
         const data = login.data || {} as GitHubProfile
         return this.loginOrRegister(login.status, state, secret, {
             name: data.name,
-            picture: data.url,
+            picture: data.avatar_url,
             provider: "Github",
             socialId: data.id.toString()
         })

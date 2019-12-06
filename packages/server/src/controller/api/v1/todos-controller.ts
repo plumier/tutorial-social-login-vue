@@ -1,11 +1,11 @@
 import { route, val } from "plumier"
 
-import { Todo, TodoModel } from "../../../model/model"
+import { Todo, TodoModel } from "../../../model"
 
 export class TodosController {
     //GET /api/v1/todos?offset&limit
     @route.get("")
-    all(@val.optional() offset: number, @val.optional() limit: number) {
+    all(offset: number, limit: number) {
         return TodoModel.find({ deleted: false })
             .limit(limit)
             .skip(offset)

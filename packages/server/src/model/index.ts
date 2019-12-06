@@ -1,5 +1,6 @@
 import { authorize, domain, val } from "@plumier/core"
 import { collection, model } from "@plumier/mongoose"
+import { checkConfirmPassword } from "../validator"
 
 
 export type UserRole = "Admin" | "User"
@@ -12,11 +13,8 @@ export interface LoginUser {
 @domain()
 export class DomainBase {
     constructor(
-        @val.optional()
         public createdAt: Date = new Date(),
-        @val.optional()
         public updatedAt: Date = new Date(),
-        @val.optional()
         public deleted: boolean = false
     ) { }
 }
@@ -24,9 +22,9 @@ export class DomainBase {
 @collection()
 export class Todo extends DomainBase {
     constructor(
+        @val.required()
         @val.length({ max: 64 })
         public title: string,
-        @val.optional()
         public completed?: boolean
     ) { super() }
 }
@@ -34,13 +32,15 @@ export class Todo extends DomainBase {
 export const TodoModel = model(Todo)
 
 @collection()
+@checkConfirmPassword()
 export class User extends DomainBase {
     constructor(
+        @val.required()
         public name: string,
+        @val.required()
         @val.email()
         @val.unique()
-        public email:string,
-        @val.optional()
+        public email: string,
         public picture: string,
         public password: string,
         @authorize.role("Admin")
@@ -51,5 +51,7 @@ export class User extends DomainBase {
         public provider: "Facebook" | "Google" | "Github" | "Local"
     ) { super() }
 }
+
+export const userProjection = { password: 0 }
 
 export const UserModel = model(User)
