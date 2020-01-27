@@ -3,7 +3,7 @@ import { ResponseApi, callApi } from "@/api/apibase";
 export default {
   async getIdentity(): Promise<ResponseApi<any>> {
     return await callApi({
-      url: "auth/dialogs/identity",
+      url: "auth/csrf-secret",
       method: "get"
     });
   },

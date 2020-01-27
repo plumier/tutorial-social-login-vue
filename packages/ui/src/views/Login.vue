@@ -91,8 +91,7 @@ export default class Login extends Vue {
 
   async created() {
     // Social login popup handler
-    (window as any).onLogin = this.socialLoginHandler;
-
+    window.addEventListener("message", this.socialLoginHandler)
     await AuthApi.getIdentity();
     if (await UserStore.isAuthenticated()) {
       this.$router.replace("/home");
@@ -100,15 +99,14 @@ export default class Login extends Vue {
   }
 
   async socialLoginHandler(
-    sender: Window,
-    params: { status: "Success" | "Failed"; accessToken: string }
+    evt: MessageEvent
   ) {
-    sender.close();
     //make sure the sender dialog is in the same origin with the app
     if (
-      sender.location.origin === window.location.origin &&
-      params.status === "Success"
+      evt.origin === window.location.origin &&
+      evt.data.status === "Success"
     ) {
+      if (evt.source && "close" in evt.source) evt.source.close()
       if (await UserStore.isAuthenticated()) {
         this.$router.replace("/home");
       } else {
@@ -134,15 +132,15 @@ export default class Login extends Vue {
   }
 
   facebookDialog() {
-    dialog("auth/dialogs/facebook");
+    dialog("auth/facebook/login");
   }
 
   googleDialog() {
-    dialog("auth/dialogs/google");
+    dialog("auth/google/login");
   }
 
   githubDialog() {
-    dialog("auth/dialogs/github");
+    dialog("auth/github/login");
   }
 }
 </script>
