@@ -11,6 +11,6 @@ export class HomeController {
     //to enable bookmark and in location refresh for SPA
     @route.historyApiFallback()
     index(){
-        return response.file(join(__dirname, "../../../ui/build/index.html"))
+        return response.file(join(__dirname, "../../../ui/dist/index.html"))
     }
 }

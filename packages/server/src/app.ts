@@ -48,7 +48,7 @@ export function createApp(config?: Partial<Configuration> & { mongoDbUri?: strin
         .set(config || {})
         .set(new HerokuForceHttpsFacility())
         .set(new WebApiFacility({ bodyParser: { multipart: true }, controller: join(__dirname, "controller") }))
-        .set(new ServeStaticFacility({ root: join(__dirname, "../../ui/build") }))
+        .set(new ServeStaticFacility({ root: join(__dirname, "../../ui/dist") }))
         .set(new MongooseFacility({ model: join(__dirname, "model"), uri: config && config.mongoDbUri || process.env.MONGODB_URI, schemaGenerator }))
         .set(new JwtAuthFacility({ secret: process.env.JWT_SECRET }))
         .set(new OAuthFacility())
